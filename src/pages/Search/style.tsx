@@ -26,3 +26,39 @@ export const SkletonCard = styled(Skleton)`
     padding: 0px 30px;
     min-height: 400px;  
 `;
+
+export const PageContainer = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+`;
+
+export const CurrentPage = styled.div`
+    border-radius: 50%;
+    padding: 12px;
+    font-size: 16px;
+    height: 42px;
+    width: 42px;
+    color: #EEEEEE;
+    border: 1px solid #EEEEEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const ControlButton = styled.button`
+    margin: 0px 12px;
+    border-radius: 12px;
+    color: #EEEEEE;
+    background-color: #00000000;
+    border: 1px solid #EEEEEE;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:disabled {
+        border: 1px solid #eeeeee4c;
+        color: #eeeeee4c;
+    }
+`;
