@@ -35,6 +35,7 @@ const Search: FC = () => {
                 ) :  data.map(item => (
                     <MovieCard
                         key={item.imdbID}
+                        id={item.imdbID}
                         img={item.Poster}
                         title={item.Title}
                         year={item.Year}

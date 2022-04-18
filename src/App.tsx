@@ -19,7 +19,7 @@ const App: FC = () => {
                     <Routes>
                         <Route path="/" element={<Home/>} />
                         <Route path="/search" element={<Search/>} />
-                        <Route path="/movie/:title" element={<Movie/>} />
+                        <Route path="/movie/:id" element={<Movie/>} />
                         <Route path="error" element={<Error/>} />
                         <Route path="*" element={<Navigate to="error" replace state={{ code: 404 }}/>} />
                     </Routes>
