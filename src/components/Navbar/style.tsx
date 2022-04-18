@@ -8,6 +8,7 @@ export const Root = styled.div`
     align-items: center;
     padding: .75rem 2.25rem;
     background-color: #313131 ;
+    cursor: pointer;
 `;
 
 export const Logo = styled.img`

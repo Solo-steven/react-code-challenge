@@ -6,8 +6,15 @@ export const Container = styled.div`
     height: 100%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 1fr);;
+
+    @media (min-width: 0px) {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+    @media (min-width: 1080px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+    }
 `;
 
 export const Item = styled.div`
@@ -17,20 +24,27 @@ export const Item = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    padding: 18px;
 `;
 
 export const Logo = styled.img`
     max-width: 300px;
     width: 100%;
-    margin-bottom: 1.2rem;
+    margin: 1.2rem 0px;
 `;
 
 export const Title = styled.div`
     font-weight: 400;
-    font-size: 64px;
-    line-height: 70px;
     color: #EEEEEE;
     margin-bottom: 3.2rem;
+    @media (min-width: 0px) {
+        font-size: 36px;
+        line-height: 40px;
+    }
+    @media (min-width: 1080px) {
+        font-size: 56px;
+        line-height: 60px;
+    }
 `;
 
 export const Subtitle = styled.div`
@@ -74,4 +88,12 @@ export const Button = styled.button`
     &:active {
         border: 1px solid #aaa8a8e6;
     }
+`;
+
+export const Error = styled.p`
+    color: #ff6a6ae6;
+    font-size: 16px;
+    line-height: 18px;
+    min-height: 18px;
+    margin: 12px 0px;
 `;

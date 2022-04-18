@@ -7,6 +7,7 @@ const Home: FC = () => {
     const navigation = useNavigate();
     const [title, setTitle] = useState("");
     const [year, setYear] = useState("");
+    const [error, setError] = useState(false);
     return (
         <S.Container>
             <S.Item>
@@ -18,7 +19,10 @@ const Home: FC = () => {
                 <S.Input 
                     placeholder="title" 
                     value={title} 
-                    onChange={(e) => { setTitle( e.target.value); }} 
+                    onChange={(e) => { 
+                        setError(false);
+                        setTitle( e.target.value);
+                    }} 
                 />
                 <S.Input 
                     placeholder="year" 
@@ -26,10 +30,17 @@ const Home: FC = () => {
                     onChange={(e) => { setYear( e.target.value); }} 
                     />
                 <S.Button 
-                    onClick={()=> { navigation(`/search?title=${title}${year ? `&year=${year}` : ""}`) }}
+                    onClick={()=> { 
+                        if(!title) {
+                            setError(true);
+                            return;
+                        }
+                        navigation(`/search?title=${title}${year ? `&year=${year}` : ""}`) 
+                    }}
                 >
                     {"Search"}
                 </S.Button>
+                <S.Error>{ error ? "Title Should Be Empty" : "" }</S.Error>
             </S.Item>
         </S.Container>
     );

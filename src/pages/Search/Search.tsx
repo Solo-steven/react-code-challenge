@@ -26,7 +26,9 @@ const Search: FC = () => {
     return (
         <S.Container>
             {
-                data.map(item => (
+                data.length  === 0  ? (
+                    new Array(10).fill(1).map((_, i) =>  <S.SkletonCard key={i}/> )
+                ) :  data.map(item => (
                     <MovieCard
                         key={item.imdbID}
                         img={item.Poster}

@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
+import { Skleton } from "components/Skleton";
 
 export const Container = styled.div`
     display: flex;
@@ -8,6 +9,13 @@ export const Container = styled.div`
     margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: 0px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    @media (min-width: 1080px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
 `;
 
 export const Item = styled.div`
@@ -46,55 +54,26 @@ export const Plot = styled.p`
 `;
 
 /** Skleton Style */
-const Loading = keyframes`
-  0%{
-    background-position: -315px 0px,  0px 0px;
-  }
 
-  100% {
-     background-position: 315px 0px,  0px 0px;
-  }
-`;
-
-export const SkletonImg = styled.div`
+export const SkletonImg = styled(Skleton)`
     min-width: 350px;
     min-height: 550px;
-    background-image: 
-        linear-gradient(-90deg, transparent , #6d748191,  transparent),
-        linear-gradient(90deg, #484f5bb1 , #484f5bb1 90%);
-    background-repeat: no-repeat;
-    animation: ${Loading} 1.5s infinite linear;
 `;
 
-export const SkletonTitle = styled.h2`
+export const SkletonTitle = styled(Skleton)`
     width: 100%;
     min-height: 32px;
-    background-image: 
-        linear-gradient(-90deg, transparent , #6d748191,  transparent),
-        linear-gradient(90deg, #484f5bb1 , #484f5bb1 90%);
-    background-repeat: no-repeat;
-    animation: ${Loading} 1.5s infinite linear;
     margin-bottom: 6px;
 `;
 
-export const SkletonYear = styled.p`
+export const SkletonYear = styled(Skleton)`
     width: 80%;
     min-height: 14px;  
-    background-image: 
-        linear-gradient(-90deg, transparent , #6d748191,  transparent),
-        linear-gradient(90deg, #484f5bb1 , #484f5bb1 90%);
-    background-repeat: no-repeat;
-    animation: ${Loading} 1.5s infinite linear;
     margin-bottom: 16px;
 `;
 
-export const SkletonPlot = styled.p`
+export const SkletonPlot = styled(Skleton)`
     width: 100%;
     min-height: 150px;
-    background-image: 
-        linear-gradient(-90deg, transparent , #6d748191,  transparent),
-        linear-gradient(90deg, #484f5bb1 , #484f5bb1 90%);
-    background-repeat: no-repeat;
-    animation: ${Loading} 1.5s infinite linear;
     padding: 8px 12px;
 `;
