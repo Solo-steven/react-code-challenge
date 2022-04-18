@@ -9,20 +9,24 @@ const Search: FC = () => {
     const title = params.get("title");
     const year = params.get("year");
     const [data, setData] = useState<Array<any>>([]);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState<{ code: number, message: string} | null>(null);
     useEffect(() => {
         if(title) {
             axios.get(`http://www.omdbapi.com/?apikey=1e129794&s=${title}`)
                 .then(response => { 
+                    if(response.data.Response === "False") {
+                        setError({ code: 500, message: response.data.Error || "Internal Error"});
+                        return;
+                    }
                     setData(response.data.Search);
                 })
                 .catch(error => {
-                    setError(true);
+                    setError({ code: error.code || 404, message:  error.message || "not find" });
                 })
         }
     }, [title, year]);
     if(error)
-        return <Navigate to="/error"/>
+        return <Navigate to="/error" replace state={error} />
     return (
         <S.Container>
             {
